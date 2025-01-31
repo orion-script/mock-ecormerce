@@ -82,14 +82,14 @@ export default function CheckoutPage() {
                     <div>
                       <h3 className="text-lg font-medium">{item.title}</h3>
                       <p>
-                        ${item.price.toFixed(2)} x {item.quantity}
+                        #{item.price.toFixed(2)} x {item.quantity}
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
               <h2 className="text-xl font-bold mt-4">
-                Total: ${total.toFixed(2)}
+                Total: #{total.toFixed(2)}
               </h2>
             </div>
 

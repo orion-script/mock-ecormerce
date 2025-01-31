@@ -50,6 +50,8 @@ export default function Shop() {
     fetchProducts();
   }, []);
 
+  console.log(products);
+
   // Function to filter products based on search query
   useEffect(() => {
     if (searchQuery.trim() === "") {
@@ -146,7 +148,7 @@ export default function Shop() {
                   {product.title}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-300">
-                  ${product.price.toFixed(2)}
+                  #{product.price.toFixed(2)}
                 </p>
                 <button
                   onClick={() => handleCartAction(product)}

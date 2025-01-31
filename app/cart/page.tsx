@@ -34,10 +34,10 @@ export default function CartPage() {
                     <div className="flex flex-col flex-1">
                       <h2 className="text-lg font-semibold">{item.title}</h2>
                       <p className="text-gray-600 dark:text-gray-400">
-                        ${item.price.toFixed(2)} x {item.quantity}
+                        #{item.price.toFixed(2)} x {item.quantity}
                       </p>
                       <p className="font-bold">
-                        Total: ${(item.price * item.quantity).toFixed(2)}
+                        Total: #{(item.price * item.quantity).toFixed(2)}
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -71,7 +71,7 @@ export default function CartPage() {
               </div>
             </div>
             <div className="text-center">
-              <h2 className="text-xl font-bold">Total: ${total.toFixed(2)}</h2>
+              <h2 className="text-xl font-bold">Total: #{total.toFixed(2)}</h2>
 
               {/* Checkout Button */}
               <button
