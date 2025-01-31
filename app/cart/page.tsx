@@ -1,5 +1,4 @@
 "use client";
-
 import { useCart } from "../../context/CartContext";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
@@ -7,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity, total } = useCart();
-  const router = useRouter(); // Initialize router
+  const router = useRouter();
 
   return (
     <>
@@ -73,6 +72,7 @@ export default function CartPage() {
             </div>
             <div className="text-center">
               <h2 className="text-xl font-bold">Total: ${total.toFixed(2)}</h2>
+
               {/* Checkout Button */}
               <button
                 onClick={() => router.push("/checkout")}

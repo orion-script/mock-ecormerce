@@ -1,5 +1,4 @@
 "use client";
-
 import { createContext, useContext, useState, useEffect } from "react";
 
 export interface Product {
@@ -23,7 +22,7 @@ interface CartContextType {
   updateQuantity: (productId: number, quantity: number) => void;
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
-  clearCart: () => void; // New function to clear cart
+  clearCart: () => void;
   total: number;
 }
 
@@ -96,7 +95,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Function to clear cart after checkout
   const clearCart = () => {
     setCart([]);
-    localStorage.removeItem("cart"); // Also remove from local storage
+    localStorage.removeItem("cart");
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -110,7 +109,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         updateQuantity,
         increaseQuantity,
         decreaseQuantity,
-        clearCart, // Provide the clearCart function
+        clearCart,
         total,
       }}
     >

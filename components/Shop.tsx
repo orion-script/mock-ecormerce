@@ -22,10 +22,10 @@ interface APIProduct {
 export default function Shop() {
   const [products, setProducts] = useState<APIProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<APIProduct[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>(""); // Search state
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>("");
-  const { cart, addToCart, removeFromCart } = useCart(); // Access cart state and functions
+  const { cart, addToCart, removeFromCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,7 +34,7 @@ export default function Shop() {
         if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
         setProducts(data);
-        setFilteredProducts(data); // Initialize filtered products with all products
+        setFilteredProducts(data);
       } catch (error) {
         setError(
           `Something went wrong! ${
@@ -53,7 +53,7 @@ export default function Shop() {
   // Function to filter products based on search query
   useEffect(() => {
     if (searchQuery.trim() === "") {
-      setFilteredProducts(products); // Reset to all products when query is empty
+      setFilteredProducts(products);
     } else {
       const filtered = products.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -66,7 +66,7 @@ export default function Shop() {
   const convertToCartProduct = (product: APIProduct): CartProduct => {
     return {
       ...product,
-      quantity: 1, // Default quantity when adding to cart
+      quantity: 1,
     };
   };
 
